@@ -26,6 +26,7 @@ jobs:
       - run: echo ${{steps.version.outputs.prop}}
       - name: Install dependencies
         run: |
+          npm config set registry https://registry.npmmirror.com
           npm install
           zip -r Flow.Launcher.VolcanoTranslation-1.0.0.zip . -x '*.git*'
       - name: Publish
