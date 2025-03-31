@@ -1,11 +1,12 @@
 name: Release
 
-on:
-  workflow_dispatch:
-  push:
+push:
     branches: [ main ]
-    paths-ignore:
+    paths-ignore: 
       - .github/workflows/*
+
+permissions:
+  contents: write
 
 jobs:
   publish:
