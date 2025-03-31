@@ -1,4 +1,5 @@
-# 火山引擎翻译插件
+# Flow.Launcher.VolcanoTranslation
+
 
 本插件为Flow Launcher提供火山引擎翻译API的集成，具有清晰的模块化结构和高效的API请求处理。
 
