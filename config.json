@@ -1,0 +1,10 @@
+{
+	"iconPath": "./src/assets/images/app.png",
+	"docUrl": "https://www.volcengine.com/docs/4640/68514",
+	"appid": "",
+	"key": "",
+	"apiUrl": "https://open.volcengineapi.com/",
+	"dest": "",
+	"source": "",
+	"url": "https://translate.volcengine.com/?text={q}"
+}

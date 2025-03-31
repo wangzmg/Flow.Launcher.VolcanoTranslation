@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "name": "flow.launcher.volcano-translation",
+  "version": "1.0.0",
+  "description": "A translation plugin made with Volcano Engine",
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangzmg/Flow.Launcher.VolcanoTranslation.git"
+  },
+  "author": "wangzmg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wangzmg/Flow.Launcher.VolcanoTranslation/issues"
+  },
+  "homepage": "https://github.com/wangzmg/Flow.Launcher.VolcanoTranslation#readme",
+  "dependencies": {
+    "@volcengine/openapi": "^1.28.1",
+    "axios": "^0.27.2",
+    "open": "^8.4.0",
+    "path": "^0.12.7"
+  }
+}

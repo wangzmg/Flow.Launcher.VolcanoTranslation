@@ -1,0 +1,12 @@
+{
+  "ID": "0055A981-5039-0D25-6B7D-1312A7CB0F26",
+  "ActionKeyword": "y",
+  "Name": "Volcano Translation",
+  "Description": "A translation plugin using VolcEngine Translation API",
+  "Author": "wangzmg",
+  "Version": "1.0.0",
+  "Language": "javascript",
+  "Website": "https://github.com/wangzmg/Flow.Launcher.VolcanoTranslation",
+  "ExecuteFileName": "./src/main.js",
+  "IcoPath": "src/assets/images/app.png"
+} 
