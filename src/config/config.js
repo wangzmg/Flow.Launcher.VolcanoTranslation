@@ -7,15 +7,14 @@ const config = require("../../config.json");
 
 /**
  * 修改配置
- * @param {string} key - 配置项名称
- * @param {string} value - 配置项新值
+ * @param {object} settings - settings
  */
-export function modify(key, value) {
+export function modify(settings) {
   // 更新配置对象
-  config[key] = value;
+  // config[key] = value;
 
   // 写入配置文件
-  writeFileSync("./config.json", JSON.stringify(config, null, "\t"), "utf-8");
+  writeFileSync("./config.json", JSON.stringify(settings, null, "\t"), "utf-8");
 }
 
 // 导出配置对象

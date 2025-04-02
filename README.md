@@ -44,14 +44,6 @@ y ja 你好世界
 ```
 便捷设定目标语言
 
-
-### 配置命令
-
-- `y appid your-appid` - 设置火山引擎API ID
-- `y key your-key` - 设置火山引擎API密钥
-- `y dest zh` - 设置固定的目标语言（如果需要）
-- `y dest ""` - 恢复自动中英互译模式
-- `y url ""` - 配置在线翻译链接（浏览器跳转），使用'tr url 你的URL'进行设置，URL中用{q}表示搜索词，默认值`https://translate.volcengine.com/?text={q}`
 ## 支持的语言
 
 支持火山引擎翻译API提供的所有语言，包括但不限于：

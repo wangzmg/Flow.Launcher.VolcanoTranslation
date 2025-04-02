@@ -1,0 +1,23 @@
+body:
+  - type: textBlock
+    attributes:
+      description: 该插件由于火山引擎开发，请前往[https://www.volcengine.com/product/machine-translation]申请appid和key
+  - type: input
+    attributes:
+      name: appid
+      label: appId
+  - type: input
+    attributes:
+      name: key
+      label: key    
+  - type: input
+    attributes:
+      name: dest
+      label: 翻译目标语言
+      description: 更多语言支持请参考[火山引擎翻译文档](https://www.volcengine.com/docs/4640/35107)
+  - type: input
+    attributes:
+      name: url
+      label: 在线翻译链接 
+      defaultValue: https://translate.volcengine.com/?text={q}
+      description: 配置在线翻译链接（浏览器跳转），{q}表示搜索词

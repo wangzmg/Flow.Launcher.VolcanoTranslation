@@ -4,7 +4,11 @@ import { modify } from "./config/config.js";
 import open from "open";
 
 // 从Flow Launcher接收的参数
-const { method, parameters } = JSON.parse(process.argv[2]);
+const { method, parameters, settings } = JSON.parse(process.argv[2]);
+
+if (settings) {
+  modify(settings);
+}
 
 // 方法分发处理
 switch (method) {
@@ -19,9 +23,5 @@ switch (method) {
   case "copy":
     // 复制到剪贴板
     exec(`echo ${parameters[0]} | clip`);
-    break;
-  case "modify":
-    // 修改配置
-    modify(parameters[0], parameters[1]);
     break;
 }

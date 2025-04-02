@@ -25,47 +25,6 @@ export async function query(parameters) {
     ]);
   }
 
-  // 处理配置查看
-  if (
-    parameters === "appid" ||
-    parameters === "key" ||
-    parameters === "dest" ||
-    parameters === "url"
-  ) {
-    // 显示配置信息
-    const value = config[parameters] || "未设置";
-    let subtitle = `${parameters}的配置信息`;
-
-    if (parameters === "url") {
-      subtitle = message.urlConfigSubTitle;
-    }
-
-    return success([createResult(parameters + " " + value, subtitle, 100)]);
-  }
-
-  // 处理配置修改
-  const splitParams = parameters.split(" ");
-  if (
-    splitParams.length >= 2 &&
-    ["appid", "key", "dest", "url"].includes(splitParams[0])
-  ) {
-    // 对于url，可能包含空格，需要特殊处理
-    const key = splitParams[0];
-    const value = parameters.substring(key.length).trim();
-
-    let subtitle = "点击此项或回车修改";
-    if (key === "url") {
-      subtitle = message.urlSetSubTitle;
-    }
-
-    return success([
-      createResult(key + " " + value, subtitle, 100, {
-        method: "modify",
-        parameters: [key, value],
-      }),
-    ]);
-  }
-
   try {
     // 调用翻译API
     const response = await translate(parameters);
@@ -74,18 +33,8 @@ export async function query(parameters) {
     if (!response.success) {
       // 处理错误情况
       const errorMessage = response.error;
-      let subtitle = "点击查看API文档";
 
-      if (errorMessage === message.appidOrKeyNotFound) {
-        subtitle = message.appidOrKeyNotFoundSubTitle;
-      }
-
-      result = [
-        createResult(errorMessage, subtitle, 100, {
-          method: "open_url",
-          parameters: [config.docUrl],
-        }),
-      ];
+      result = [createResult(errorMessage, "", 100)];
     } else if (response.data && response.data.length > 0) {
       // 处理成功情况
       result = response.data.map((translation, index) =>

@@ -10,7 +10,6 @@ import { callApi } from "./volcano-api.js";
  * @param {Object} params 请求参数
  * @param {string} params.TargetLanguage 目标语言
  * @param {string[]} params.TextList 要翻译的文本列表
- * @param {string} [params.SourceLanguage] 源语言(可选)
  * @param {Object} credentials 认证信息
  * @returns {Promise<Object>} 翻译结果
  */
@@ -20,11 +19,6 @@ export async function TranslateText(params, credentials) {
     TextList: params.TextList,
     TargetLanguage: params.TargetLanguage,
   };
-
-  // 如果提供了源语言，则添加
-  if (params.SourceLanguage) {
-    requestData.SourceLanguage = params.SourceLanguage;
-  }
 
   // 调用API
   return await callApi({
@@ -39,11 +33,10 @@ export async function TranslateText(params, credentials) {
  * 简易翻译函数 - 方便直接调用
  * @param {string|string[]} text 要翻译的文本或文本数组
  * @param {string} targetLang 目标语言代码
- * @param {string} sourceLang 源语言代码(可选)
  * @param {Object} credentials 认证信息
  * @returns {Promise<string|string[]>} 翻译后的文本或文本数组
  */
-export async function translate(text, targetLang, sourceLang, credentials) {
+export async function translate(text, targetLang, credentials) {
   // 统一处理输入格式
   const isArray = Array.isArray(text);
   const textList = isArray ? text : [text];
@@ -53,11 +46,6 @@ export async function translate(text, targetLang, sourceLang, credentials) {
     TextList: textList,
     TargetLanguage: targetLang,
   };
-
-  // 添加源语言参数(如果有)
-  if (sourceLang) {
-    params.SourceLanguage = sourceLang;
-  }
 
   // 调用API
   const result = await TranslateText(params, credentials);

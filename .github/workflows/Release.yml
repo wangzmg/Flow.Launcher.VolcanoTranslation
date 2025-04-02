@@ -1,8 +1,9 @@
 name: Release
 
-push:
-    branches: [ main ]
-    paths-ignore: 
+on:
+  push:
+    branches: [main]
+    paths-ignore:
       - .github/workflows/*
 
 permissions:
@@ -17,22 +18,22 @@ jobs:
       - name: Set up Node.Js
         uses: actions/setup-node@v2
         with:
-          node-version: '16.18.0'
+          node-version: "16.18.0"
       - name: get version
         id: version
         uses: notiz-dev/github-action-json-property@release
         with:
-          path: 'plugin.json'
-          prop_path: 'Version'
+          path: "plugin.json"
+          prop_path: "Version"
       - run: echo ${{steps.version.outputs.prop}}
       - name: Install dependencies
         run: |
           npm install
-          zip -r Flow.Launcher.VolcanoTranslation-1.0.0.zip . -x '*.git*'
+          zip -r Flow.Launcher.VolcanoTranslation.zip . -x '*.git*'
       - name: Publish
         uses: softprops/action-gh-release@v1
         with:
-          files: 'Flow.Launcher.VolcanoTranslation.zip'
+          files: "Flow.Launcher.VolcanoTranslation.zip"
           tag_name: "v${{steps.version.outputs.prop}}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

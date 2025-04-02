@@ -59,11 +59,8 @@ async function callTranslationAPI(text) {
       targetLang = hasChinese ? "en" : "zh";
     }
 
-    // 源语言始终保持为null，由API自动检测
-    const sourceLang = null;
-
     // 调用翻译API - 传递已处理好的所有参数
-    return await translateApi(cleanedText, targetLang, sourceLang, credentials);
+    return await translateApi(cleanedText, targetLang, credentials);
   } catch (error) {
     // 处理API错误，保持与原有错误处理逻辑一致
     if (error.message.includes("API错误")) {
